@@ -23,7 +23,7 @@ const ReportForm=()=> {
   };
 
   return (
-    <div className="p-6 bg-white rounded shadow">
+    <div className="max-w-2xl mx-auto p-6 bg-white rounded shadow">
       <h2 className="text-xl font-bold mb-4">Submit Monthly Report</h2>
 
       {Object.keys(form).map((key) => (

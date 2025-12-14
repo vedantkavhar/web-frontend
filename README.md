@@ -1,16 +1,111 @@
-# React + Vite
+# 📘 NGO Report Manager - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Simple React application for NGO report management with tabbed interface.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### NGO Portal
+- **Single Report Form** - Submit individual monthly reports
+- **Bulk CSV Upload** - Upload multiple reports via CSV file
+- **Progress Tracking** - Real-time upload progress
 
-## React Compiler
+### Admin Dashboard
+- **Monthly Analytics** - View aggregated data by month
+- **Simple Metrics** - Total NGOs, people helped, events, funds
+- **Clean Interface** - Easy-to-use dashboard
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🧱 Tech Stack
 
-## Expanding the ESLint configuration
+- **React** - Component-based UI framework
+- **Tailwind CSS** - Utility-first CSS framework
+- **Fetch API** - HTTP client for API communication
+- **Polling** - Real-time job progress updates
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🏗️ Component Architecture
+
+```
+src/
+├── components/
+│   ├── CsvUpload.jsx    # File upload with drag & drop
+│   ├── ReportForm.jsx   # Monthly report submission
+│   └── Dashboard.jsx    # Admin analytics dashboard
+├── utils/
+│   └── constant.js      # API configuration
+└── App.jsx             # Main application component
+```
+
+## 🛠️ Setup Instructions
+
+### Prerequisites
+- Node.js 16+
+- npm 
+
+### Installation
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+### Configuration
+
+Update API base URL in `src/utils/constant.js`:
+
+```javascript
+export const API_BASE = "http://localhost:7777";
+```
+
+## 📡 API Integration
+
+The frontend communicates with the backend through these endpoints:
+
+- `POST /report` - Submit single report
+- `POST /reports/upload` - Upload CSV file
+- `GET /job-status/:jobId` - Check processing status
+- `GET /dashboard?month=YYYY-MM` - Get dashboard data
+
+## 🎨 UI Features
+
+### Tabbed Interface
+- NGO Portal and Admin Dashboard tabs
+- Role-based navigation
+- Clean separation of functions
+
+### File Upload
+- Custom file picker with visual feedback
+- CSV validation
+- Progress tracking
+- Simple error handling
+
+### Dashboard
+- Month input for filtering
+- Basic metrics display
+- Loading states
+
+## 🚀 Build & Deploy
+
+```bash
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## 📱 Responsive Design
+
+The application is fully responsive and works on:
+- Desktop (1024px+)
+- Tablet (768px - 1023px)
+- Mobile (320px - 767px)
+
+## ♿ Accessibility
+
+- Keyboard navigation support
+- Screen reader compatible
+- High contrast colors
+- Focus indicators
+- ARIA labels
